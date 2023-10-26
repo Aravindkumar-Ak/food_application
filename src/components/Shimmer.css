@@ -1,0 +1,23 @@
+.shimmer{
+    padding: 150px;
+
+}
+.shimmer-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+
+}
+.shimmer-cards{
+    margin: 20px;
+    background-color: #f0f0f0;
+    width: 200px;
+    height: 250px;
+}
+
+.shimmer-btn{
+    background-color: #f0f0f0;
+    width: 150px;
+    height: 32px;
+    border: 0;
+}

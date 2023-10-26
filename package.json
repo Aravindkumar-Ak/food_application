@@ -1,0 +1,23 @@
+{
+  "name": "namste-react2",
+  "version": "1.0.0",
+  "description": "React-app",
+  "main": "App.js",
+  "scripts": {
+    "test": "\"jest\"",
+    "start":"parcel index.html"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Aravindkumar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
