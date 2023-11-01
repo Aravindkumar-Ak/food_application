@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import RestaurantCards from "./RestaurantCards";
 import Shimmer from "./Shimmer";
 
@@ -25,28 +26,29 @@ const RestaurantContainer = () => {
     );
   };
 
-  return filterRestList.length === 0 ? (
+  return restList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="res-container">
-      <div className="search-bar">
-        <div className="search-box">
+    <div className="p-2 ">
+      <div className="flex  px-6 mb-8 items-center">
+        <div className="mr-11 ">
           <input
             type="text"
             value={inputText}
             placeholder="Search here"
+            className="p-1 border-0 rounded-md border-slate-500 cursor-pointer "
             onChange={(e) => {
               setInputText(e.target.value);
             }}
           />
        
-          <button className="search-btn" onClick={()=>{
+          <button className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-1 px-4 ml-2 border border-blue-500 hover:border-transparent rounded-md" onClick={()=>{
             const searchFilter=restList.filter((filterres)=>filterres.info.name.toLowerCase().includes(inputText.toLowerCase()))
             setFilterRestList(searchFilter) 
           }}>Search</button>
         </div>
         <button
-          className="filter-btn"
+          className="bg-transparent hover:bg-black text-black text-sm font-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-md"
           onClick={() => {
             const filterList = restList.filter(
               (list) => list.info.avgRating > 4
@@ -57,9 +59,9 @@ const RestaurantContainer = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="rescards-container">
+      <div className="grid grid-cols-4 gap-4 place-items-center">
         {filterRestList.map((restaurants) => (
-          <RestaurantCards resData={restaurants} key={restaurants.info.id} />
+        <Link to={`/restaurants/${restaurants.info.id}`} key={restaurants.info.id}><RestaurantCards resData={restaurants}  /></Link>
         ))}
       </div>
     </div>
